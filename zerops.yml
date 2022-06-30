@@ -1,0 +1,17 @@
+saleorfe:
+  build:
+    # What container type should be used as a base one for creating a build container.
+    base: [nodejs@14]
+    # What tasks should be run to build the application.
+    build:
+      - echo kk
+    # What files and directories should be copied from a build container into a runtime container.
+    deploy: [.]
+  run:
+    prepare: 
+    - npm i -g saleor@latest
+    #- saleor storefront create --demo
+    # npm install -g pnpm
+    #- pnpm i    
+    # A command that should start your service.
+    start: tail -f
